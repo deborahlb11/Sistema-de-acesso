@@ -1,0 +1,67 @@
+/* Define estilos globais */
+body 
+{
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  font-family: 'Ropa Sans', sans-serif; color:#666; font-size:14px; color:#333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color:#ADD8E6;
+}
+
+form, div
+{
+  background: #fff;
+  padding: 30px 40px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  min-width: 300px;
+}
+
+label {
+  font-size:20px;
+  color: #333;
+}
+
+input[type="text"],
+ [type="password"] 
+{
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+
+input[type="submit"] {
+  background:#00BFFF;
+  color: white;
+  border: none;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+input[type="submit"]:hover {
+  background: #0056b3;
+}
+
+button
+{
+  background:#00BFFF;
+  color: white;
+  border: none;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
