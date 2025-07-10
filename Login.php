@@ -36,16 +36,23 @@
 
 <section class="signup-section">
 <div class="login">
-<form action="cadastro.php" method="POST">
+<form action="cadastro.php" method="POST"enctype="multipart/form-data">
 <ul class="ul-list">
-<li><input type="text"  name="userc" required class="input" placeholder="Nome/Usuário"/><span class="icon"><i class="fa fa-user"></i></span></li>
+<li><input type="text"  name="userc" required class="input" placeholder="Nome Completo"/><span class="icon"><i class="fa fa-user"></i></span></li>
 <li><input type="email"  name="email" required class="input" placeholder="E-mail"/><span class="icon"><i class="fa fa-at"></i></span></li>
 <li><input type="password"  name="senhac" required class="input" placeholder="Senha"/><span class="icon"><i class="fa fa-lock"></i></span></li>
 <li><input type="text"  name="cpf" required class="input" placeholder="CPF"/><span class="icon"><i class="fa fa-user"></i></span></li>
+<li><input type="text"  name="idade" required class="input" placeholder="Idade"/><span class="icon"><i class="fa fa-user"></i></span></li>
+<li><input type="text"  name="rua" required class="input" placeholder="Rua"/><span class="icon"><i class="fa fa-user"></i></span></li>
+<li><input type="text"  name="cidade" required class="input" placeholder="Cidade"/><span class="icon"><i class="fa fa-user"></i></span></li>
+<li><input type="text"  name="estado" required class="input" placeholder="Estado"/><span class="icon"><i class="fa fa-user"></i></span></li>
+<li><input type="text"  name="biog" required class="input" placeholder="Biografia"/><span class="icon"><i class="fa fa-user"></i></span></li>
+<li><input type="file" name="foto" accept="image/*" required class="input"/><span class="icon"><i class="fa fa-picture-o"></i></span></li>
 <li><input type="submit" value="Cadastrar" class="btn" name="cadastrar"></li>
 </ul>
 </form>
 </div>
 </section>
 </div>
+
 
