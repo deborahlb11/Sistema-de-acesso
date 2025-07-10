@@ -16,7 +16,7 @@ $codigo = $_SESSION['codigo'] ?? null;
 
 if ($codigo) 
 {
-    $sql = "SELECT nome, email,senha FROM lce WHERE codigo = '$codigo'";
+    $sql = "SELECT nome, email,senha,idade,rua,cidade,estado,biog,img FROM lce WHERE codigo = '$codigo'";
     $res = mysqli_query($con, $sql);
 
     if(mysqli_num_rows($res)>0)
@@ -27,7 +27,13 @@ if ($codigo)
                        
                         $nome=$aux["nome"]; 
                         $email=$aux["email"]; 
-                        $senha=$aux["senha"];         
+                        $senha=$aux["senha"];   
+                        $idade = $aux["idade"];
+                        $rua = $aux["rua"];
+                        $cidade = $aux["cidade"];
+                        $estado = $aux["estado"];
+                        $biog = $aux["biog"];
+                        $img= $aux["img"];     
                        
                     } 
                 }
@@ -54,7 +60,35 @@ if ($codigo)
      <label>Senha:</label><br>
     <input type="password" name="senha" value="<?php echo $senha; ?>" required><br><br>
 
+    <label>Idade:</label>
+    <input type="number" name="idade" class="form-control" value="<?php echo $idade; ?>">
+
+    <label>Rua:</label>
+    <input type="text" name="rua" class="form-control" value="<?php echo $rua; ?>">
+
+    <label>Cidade:</label>
+    <input type="text" name="cidade" class="form-control" value="<?php echo $cidade; ?>">
+
+    <label>Estado:</label>
+    <input type="text" name="estado" class="form-control" value="<?php echo $estado; ?>">
+
+    <label>Biografia:</label>
+    <textarea name="biog" class="form-control"><?php echo $biog; ?></textarea>         
+
      <input type="hidden" name="codigo" value="<?php echo $codigo?>">
+
+
+    <div class="form-group">
+                <label>Foto Atual:</label><br>
+                <?php if ($img): ?>
+                    <img src="img/<?php echo $img; ?>" alt="Foto do usuário" width="150" class="img-thumbnail mb-2"><br>
+                <?php else: ?>
+                    <span>Sem foto enviada</span><br>
+                <?php endif; ?>
+                <label>Trocar Foto:</label>
+                <input type="file" name="foto" accept="image/*" class="form-control-file">
+            </div>
+
 
     <input type="submit" class ="btn btn-success" value="Salvar" name = "Salvar">
 </form>
@@ -63,6 +97,9 @@ if ($codigo)
 
     </body>
 </html>
+
+
+
 
 
 
