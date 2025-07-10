@@ -1,58 +1,122 @@
-# Sistema-de-acesso
+Projeto: Sistema de Cadastro e Login com Upload de Imagem (PHP + MySQL + Bootstrap)
+Este projeto é um sistema simples de autenticação de usuários com suporte a cadastro, login, edição de perfil e upload de imagem de perfil, utilizando PHP, MySQLi e Bootstrap.
 
-Este projeto consiste em um sistema web simples de autenticação de usuários utilizando PHP, MySQL, HTML, CSS e Bootstrap. Ele permite que o usuário realize o login via CPF, acesse páginas protegidas, edite seus dados, e recupere a senha (sem envio de e-mail).
+✅ Funcionalidades
+ Tela de login e cadastro com abas alternáveis
 
-## Funcionalidades
+ Cadastro com os seguintes campos:
 
-- ✅ Login via usuário e senha
-- ✅ Consulta e exibição de dados do usuário
-- ✅ Sistema de "Esqueceu a Senha" com troca direta (solicitando o seu cpf)
-- ✅ Cadastro e edição de informações
-- ✅ Layout responsivo com Bootstrap 4
-- ✅ Exibição de mensagens de erro personalizadas (popups)
-- ✅ Barra superior azul com CSS
-- ✅ Exibição dinâmica do nome do usuário logado
+Nome
 
-## Tecnologias Utilizadas
+E-mail
 
-- **PHP 7+**
-- **MySQL**
-- **HTML5**
-- **CSS3**
-- **Bootstrap 4.1.3**
-- **FontAwesome (opcional)**
+Senha
 
-📁 projeto/
-│
-├── conexao.php # Conexão com banco de dados MySQL
-├── login.php # Página de login
-├── esqueceu_senha.php # Recuperação de senha sem e-mail
-├── alterar_senha.php # Alteração de senha
-├── dashboard.php # Página protegida do usuário
-├── css/
-│ └── estilo.css # CSS personalizado (barra azul, centralização etc.)
-├── js/
-│ └── popup.js # JS para popups de erro
+CPF
 
-## Requisitos
+Idade
 
-- Servidor com suporte a PHP (Apache ou Nginx)
-- Banco de dados MySQL
-- Navegador moderno
+Rua
 
-## Como Usar
+Cidade
 
-1. Clone ou baixe o repositório
-2. Configure o arquivo `conexao.php` com suas credenciais MySQL
-3. Importe o banco de dados (tabela `lce` com colunas `cpf`, `nome`, `email`, `senha`, `codigo`)
-4. Acesse o `login.php` via navegador
-5. Teste os fluxos de login, edição e recuperação de senha
+Estado
 
-## Observações
+Biografia
 
-- O projeto **não utiliza criptografia de senha**, sendo recomendado aplicar `password_hash()` e `password_verify()` em ambientes reais.
-- O envio de e-mail na recuperação de senha **não foi implementado por escolha**, mas o formulário permite troca direta.
+Upload de imagem
 
-  ## Autor
+ Login com validação no banco de dados
 
-Desenvolvido por Debora Lima com base em trechos testados fonte de alguns css do ChatGPT.
+ Página de perfil com:
+
+Exibição da foto do usuário
+
+Dados pessoais
+
+ Página para edição de perfil:
+
+Permite atualizar todos os campos, incluindo a imagem
+
+ Armazenamento seguro das imagens no servidor (pasta img/)
+
+ Responsividade com Bootstrap 4
+
+🛠️ Tecnologias utilizadas
+PHP (mysqli procedural)
+
+MySQL / MariaDB
+
+HTML5 / CSS3
+
+Bootstrap 4.1.3
+
+Font Awesome
+
+XAMPP (para testes locais)
+
+🗂️ Estrutura de arquivos
+bash
+Copiar
+Editar
+/
+├── index.html                # Tela de login/cadastro
+├── login.php                 # Autenticação de usuários
+├── cadastro.php              # Processamento do cadastro e upload da imagem
+├── inicial.php               # Página inicial após login
+├── perfil.php                # Exibe o perfil do usuário logado
+├── editarcad.php             # Formulário para editar o cadastro
+├── salvar_edicao.php         # Salva os dados atualizados no banco
+├── conexao.php               # Conexão com banco de dados
+├── img/                      # Pasta onde as imagens são salvas
+├── login.css                 # Estilo visual do formulário
+├── editarcad.css             # Estilo da página de edição
+└── README.md
+🧪 Como rodar o projeto localmente
+Instale o XAMPP ou outro servidor com suporte a PHP e MySQL
+
+Clone ou copie os arquivos para a pasta htdocs
+
+Crie o banco de dados:
+
+sql
+Copiar
+Editar
+CREATE DATABASE dlb;
+
+USE dlb;
+
+CREATE TABLE lce (
+    codigo INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(100),
+    email VARCHAR(100),
+    senha VARCHAR(255),
+    cpf VARCHAR(20),
+    idade INT,
+    rua VARCHAR(100),
+    cidade VARCHAR(100),
+    estado VARCHAR(100),
+    biog TEXT,
+    img VARCHAR(255)
+);
+Crie a pasta /img na raiz do projeto e dê permissão de escrita
+
+Acesse via navegador: http://localhost/seu_projeto/
+
+🚨 Observações
+A senha está sendo salva sem criptografia; recomenda-se usar password_hash() em produção.
+
+O sistema ainda não possui verificação de e-mail ou autenticação avançada.
+
+Faça melhorias na segurança contra SQL Injection usando prepared statements (mysqli ou PDO).
+
+✨ Futuras melhorias sugeridas
+Validação com JavaScript
+
+Redefinir senha via e-mail
+
+Upload com pré-visualização
+
+Criptografia de senhas
+
+Painel administrativo
